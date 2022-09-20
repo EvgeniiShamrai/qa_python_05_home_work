@@ -8,7 +8,7 @@ class HomeWork4:
         self.size = 32
         self.lst = [20, -3, 15, 2, -1, -21]
         self.a = 6
-        self.b = 4
+        self.b = 3
 
     def square(self):
         """4.1. Напишите функцию square, принимающую 1 аргумент — сторону квадрата, и возвращающую 3 значения (с помощью кортежа):
@@ -25,7 +25,8 @@ class HomeWork4:
                                             last_name: Smith
                                             age: 35
                                             position: web developer"""
-        return f"name: {info['name']}\nlast_name: {info['last_name']}\nage: {str(info['age'])}\nposition: {info['position']}"
+        lst = [f"{key}:{value}" for key, value in info.items()]
+        return lst
 
     def lst_items_greater_zero(self):
         """4.3. Используя лямбда-выражение, из списка my_list = [20, -3, 15, 2, -1, -21] создайте новый список, содержащий только
@@ -55,7 +56,7 @@ if __name__ == '__main__':
     operations = input("Введите математическую операцию (+, -, *, /): ")
     hw = HomeWork4()
     print(hw.square())
-    print(hw.get_person_info(name='John', last_name='Smith', age=35, position='web developer'))
+    print(*hw.get_person_info(name='John', last='Smith', a=35, po='web developer'), sep='\n')
     print(hw.lst_items_greater_zero())
     print(hw.multiplying_list_values())
     print(hw.calc_operations(operations))
